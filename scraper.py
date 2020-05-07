@@ -14,7 +14,8 @@ authors_url_paging = "?ppn=%s"
 
 authors_index = 1
 
-db_client = MongoClient('mongodb://%s:%s@192.168.0.214/cytaty' % (credentials.user, credentials.passwd))
+#db_client = MongoClient('mongodb://%s:%s@192.168.0.214/cytaty' % (credentials.user, credentials.passwd))
+db_client = MongoClient(credentials.cluster_string)
 db = db_client.get_database('cytaty')
 dao = db['autorzy']
 dao.delete_many({})
